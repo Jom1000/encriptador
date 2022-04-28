@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encriptador</title>
+    <link rel="stylesheet" href="encriptador.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="izquierda">
+      <textarea name="" id="textarea" cols="40" rows="20" autofocus="autofocus"> </textarea>
+
+      <button id="encriptar" onclick="encriptar()">Encriptar</button>
+      <button id="desencriptar" onclick="desencriptar()">Desencriptar</button>
+      
+    </div>
+
+    <div class="derecha">
+        <textarea name="" id="resultado" cols="30" rows="10" ></textarea>
+        <button id="copiar" onclick="cortarTexto()">Copiar Texto</button>
+
+    <div id="foto">
+        <img src="Brent.jpeg" alt="" class="brent" id="brent1" style="display:block" >
+        <img src="Brent2.jpg" alt="" id="brent2" class="brent" style="display:none" >
+    </div>
+
+        
+
+    </div>
+
+    <footer>
+      <p>&copy ningun derecho reservado.<br> Encriptador de Jorge Oyola Moreno - 2022</p>
+    </footer>
+
+    <script>
+      
+      
+
+
+      function cambiarFoto(){
+          if (document.getElementById("brent1").style="display:block")   {
+            document.getElementById("brent1").style="display:none"; 
+            document.getElementById("brent2").style="display:block"            
+          }
+        
+        }
+
+      function encriptar() {
+        var texto = document.getElementById("textarea").value;
+        var texto2 = texto.replace(/e/igm, "enter");
+        texto2 = texto2.replace(/i/igm, "imes");
+        texto2 = texto2.replace(/a/igm, "ai");
+        texto2 = texto2.replace(/o/igm, "ober");
+        texto2 = texto2.replace(/u/igm, "ufat");
+        var textoCifrado = document.getElementById("resultado");
+        textoCifrado.textContent = texto2;
+
+        cambiarFoto();
+       
+      }
+
+      function desencriptar() {
+
+        var texto = document.getElementById("textarea").value;
+        var texto2 = texto.replace(/enter/igm, "e");
+        texto2 = texto2.replace(/imes/igm, "i");
+        texto2 = texto2.replace(/ai/igm, "a");
+        texto2 = texto2.replace(/ober/igm, "o");
+        texto2 = texto2.replace(/ufat/igm, "u");
+        var textoCifrado = document.getElementById("resultado");
+        textoCifrado.textContent = texto2;
+
+        cambiarFoto();
+
+      }
+
+
+      function cortarTexto() {
+          var textoCopiado = document.getElementById("resultado");
+          textoCopiado.select();
+          document.execCommand("cut");
+          location.reload();
+          document.getElementById("textarea").focus();
+          
+
+
+      }
+
+     
+
+
+        
+        
+    
+         
+      
+    </script>
+  </body>
+</html>
